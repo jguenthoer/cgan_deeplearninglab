@@ -1,6 +1,7 @@
 # cgan_deeplearninglab
 Implementing a conditional GAN to create faces from attributes and landmarks,
 using the celeba dataset http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+
 Based on arxiv.org/abs/1611.07004 (Image-to-Image Translation with Conditional Adversarial Networks)
 
 Usage:
