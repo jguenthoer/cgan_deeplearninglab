@@ -149,7 +149,7 @@ def starttrain(gen,dis):
         torch.save(dis.state_dict(), results+'dis'+str(tot)+'.pt')
         
 def main():
-    gen = network.Generator().to(device)
+    gen = network.Generator(droprate = 0.2).to(device)
     dis = network.Discriminator().to(device)
     #gen.load_state_dict(torch.load('gen_neu.pt'))
     #dis.load_state_dict(torch.load('dis_neu.pt'))

@@ -32,7 +32,7 @@ def starttrain(gen,dis):
     lossfunc = torch.nn.BCEWithLogitsLoss()
     path = '../dataset/celeba'
     batchsize = 32
-    lambdaL1 = 1
+    lambdaL1 = 2
     results = './results/%s/' % datetime.now().strftime("%Y%m%d-%H%M%S")
     os.mkdir(results)
     
@@ -134,7 +134,7 @@ def starttrain(gen,dis):
                     
                 dis.train()
                 gen.train()
-            if idx%50 == 0:
+            if idx%25 == 0:
                 train_gen = not train_gen
 
                 
@@ -151,8 +151,8 @@ def starttrain(gen,dis):
 def main():
     gen = network.Generator().to(device)
     dis = network.Discriminator().to(device)
-    #gen.load_state_dict(torch.load('gen_neu.pt'))
-    #dis.load_state_dict(torch.load('dis_neu.pt'))
+    gen.load_state_dict(torch.load('gen.pt'))
+    dis.load_state_dict(torch.load('dis.pt'))
     
 
     starttrain(gen,dis)
